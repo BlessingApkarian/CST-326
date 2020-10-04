@@ -106,4 +106,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290569869b9a40846a016ec00b3756bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplify: 339.13
+  amplify: 100
