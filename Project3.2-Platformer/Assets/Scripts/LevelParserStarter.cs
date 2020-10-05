@@ -15,6 +15,12 @@ public class LevelParserStarter : MonoBehaviour
 
     public GameObject Stone;
 
+    public GameObject Goomba;
+
+    public GameObject Coin;
+
+    public GameObject Finish;
+
     public Transform parentTransform;
     // Start is called before the first frame update
     void Start()
@@ -30,7 +36,7 @@ public class LevelParserStarter : MonoBehaviour
         using (StreamReader sr = new StreamReader(fileToParse))
         {
             string line = "";
-            int row = 0;
+            int row = 15;
 
             while ((line = sr.ReadLine()) != null)
             {
@@ -38,9 +44,10 @@ public class LevelParserStarter : MonoBehaviour
                 char[] letters = line.ToCharArray();
                 foreach (var letter in letters)
                 {
-                    //Call SpawnPrefab
+                    SpawnPrefab(letter, new Vector3(column, row, -0.5f));
+                    column++;
                 }
-
+                row--;
             }
 
             sr.Close();
@@ -53,17 +60,20 @@ public class LevelParserStarter : MonoBehaviour
 
         switch (spot)
         {
-            case 'b': Debug.Log("Spawn Brick"); break;
-            case '?': Debug.Log("Spawn QuestionBox"); break;
-            case 'x': Debug.Log("Spawn Rock"); break;
-            case 's': Debug.Log("Spawn Rock"); break;
+            case 'b': ToSpawn = Brick;  Debug.Log("Spawn Brick"); break;
+            case '?': ToSpawn = QuestionBox;  Debug.Log("Spawn QuestionBox"); break;
+            case 'x': ToSpawn = Rock;  Debug.Log("Spawn Rock"); break;
+            case 's': ToSpawn = Stone;  Debug.Log("Spawn Stone"); break;
+            case 'g': ToSpawn = Goomba;  Debug.Log("Spawn Goomba"); break;
+            case 'c': ToSpawn = Coin;  Debug.Log("Spawn Coin"); break;
+            case 'f': ToSpawn = Finish;  Debug.Log("Spawn Finish"); break;
             //default: Debug.Log("Default Entered"); break;
             default: return;
                 //ToSpawn = //Brick;       break;
         }
 
-        //ToSpawn = GameObject.Instantiate(ToSpawn, parentTransform);
-        //ToSpawn.transform.localPosition = positionToSpawn;
+        ToSpawn = GameObject.Instantiate(ToSpawn, parentTransform);
+        ToSpawn.transform.localPosition = positionToSpawn;
     }
 
     public void RefreshParse()

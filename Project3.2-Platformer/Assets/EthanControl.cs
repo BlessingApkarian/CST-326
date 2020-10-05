@@ -17,11 +17,15 @@ public class EthanControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // if player is pressing left/right keys
         float move = Input.GetAxis("Horizontal") * moveAmplify;
-        float y = (move < 0) ? 100 : 0;
-        Vector3 input = new Vector3(0, y, 0);
-        transform.eulerAngles = input;
+        if(move < 0 || move > 0)
+        {
+            animator.SetBool("isWalking", true);
+        }
+        //float y = (move < 0) ? 100 : 0;
+        //Vector3 input = new Vector3(0, y, 0);
+        //transform.eulerAngles = input;
 
         animator.SetFloat("Speed", Mathf.Abs(move));
         
