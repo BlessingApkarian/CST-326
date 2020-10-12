@@ -5,20 +5,20 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Transform player;
+    public Transform shottingOffset;
 
     public GameObject bullet;
 
     private float velocityPlayer = 0;
 
-    public Transform shottingOffset;
+    public static bool playerHit = false;
 
     [SerializeField] private float amplitude = 1;
 
-    // Update is called once per frame
     void Update()
     {
         velocityPlayer = Input.GetAxis("Horizontal");
-        Debug.Log(velocityPlayer);
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
             GameObject shot = Instantiate(bullet, shottingOffset.position, Quaternion.identity);
@@ -26,6 +26,22 @@ public class Player : MonoBehaviour
 
             Destroy(shot, 3f);
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Ouch!");
+
+        if(collision.gameObject.tag == "bullet")
+        {
+            // destroy bullet
+            Destroy(collision.gameObject);
+            // destroy player
+            Destroy(gameObject);
+            // decrement lives
+            playerHit = true;
+        }
+        
     }
 
     void FixedUpdate()
