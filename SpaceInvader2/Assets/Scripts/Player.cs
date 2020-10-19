@@ -5,13 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-  public GameObject bullet;
-  private Animator playerAnimator;
 
-  public Transform shoottingOffset;
+    public GameObject bullet;
+    private Animator playerAnimator;
+    public Transform player;
+    public Transform shoottingOffset;
 
-    private float timer = 5;
-    private float timeElapsed = 0;
+    private float velocityPlayer = 0;
+
+    [SerializeField] private float amplitude = 1;
 
     void Start()
     {
@@ -21,7 +23,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        velocityPlayer = Input.GetAxis("Horizontal");
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
 
@@ -43,23 +46,27 @@ public class Player : MonoBehaviour
         }
         else if (collision.gameObject.tag == "EnemyBullet")
         {
+            Invoke("goToCredits", 1f); // Invoke goes to the method in first param, second param is the time elapsed before going to said method
             GetComponent<Animator>().SetTrigger("Death");
             Destroy(collision.gameObject); // destroy bullet
             Destroy(gameObject, 1f); // destroy enemy (after 1 second so we can see the death animation)
-            Debug.Log("Dead");
-            goToCredits();
+            Debug.Log("goToCredits");
+            
         }
-
     }
 
     private void goToCredits()
     {
-        timeElapsed += Time.deltaTime;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // go to end credits when player dies
+    }
 
-        if (timer < timeElapsed)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // go to end credits when player dies
-            timeElapsed = 0;
-        }
+    void FixedUpdate()
+    {
+        MovePlayer(new Vector3(velocityPlayer, 0, 0), player);
+    }
+
+    void MovePlayer(Vector3 direction, Transform player)
+    {
+        player.Translate(direction * amplitude);
     }
 }

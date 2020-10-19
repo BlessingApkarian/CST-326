@@ -6,6 +6,7 @@ TagManager:
   tags:
   - boundary
   - EnemyBullet
+  - Bot
   layers:
   - Default
   - TransparentFX

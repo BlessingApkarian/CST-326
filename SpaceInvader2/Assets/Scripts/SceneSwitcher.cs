@@ -13,7 +13,6 @@ public class SceneSwitcher : MonoBehaviour
         timeElapsed += Time.deltaTime;
         if (timeElapsed > timer)
         {
-            Debug.Log(timeElapsed);
             resetGame();
             timer = 0;
         }

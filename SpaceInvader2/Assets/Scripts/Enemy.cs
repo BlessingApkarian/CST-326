@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     {
         timer += Time.deltaTime;
         //Debug.Log(timer);
-        if (timer > 3)
+        if (timer > 3 && gameObject.tag == "Bot")
         {
             Fire();
             timer = 0;
