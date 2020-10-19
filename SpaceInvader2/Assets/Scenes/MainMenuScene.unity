@@ -399,7 +399,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2088091150, guid: c3b77266ea0668e4289e92aa866a25ed, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2088091147, guid: c3b77266ea0668e4289e92aa866a25ed, type: 3}
+    - {fileID: 4988884264498715822, guid: c3b77266ea0668e4289e92aa866a25ed, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c3b77266ea0668e4289e92aa866a25ed, type: 3}
 --- !u!1 &260021137 stripped
 GameObject:
@@ -734,7 +740,13 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2088091150, guid: c3b77266ea0668e4289e92aa866a25ed, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e92f540f80c4c684f853f1bc4f9714b8, type: 2}
+    m_RemovedComponents:
+    - {fileID: 2088091147, guid: c3b77266ea0668e4289e92aa866a25ed, type: 3}
+    - {fileID: 4988884264498715822, guid: c3b77266ea0668e4289e92aa866a25ed, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c3b77266ea0668e4289e92aa866a25ed, type: 3}
 --- !u!1 &649345893 stripped
 GameObject:
@@ -1065,6 +1077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e05e95d87d9aa94ba695d1d4efd7938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: MainMenu
 --- !u!1001 &1103300944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1182,7 +1195,13 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2088091150, guid: c3b77266ea0668e4289e92aa866a25ed, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ba3cd5c75affda248ab8b13501dcf9c4, type: 2}
+    m_RemovedComponents:
+    - {fileID: 2088091147, guid: c3b77266ea0668e4289e92aa866a25ed, type: 3}
+    - {fileID: 4988884264498715822, guid: c3b77266ea0668e4289e92aa866a25ed, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c3b77266ea0668e4289e92aa866a25ed, type: 3}
 --- !u!1 &1166586795
 GameObject:
@@ -1350,7 +1369,9 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 01c1fceb723067546b6bd7a880fa0c24, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2088091147, guid: c3b77266ea0668e4289e92aa866a25ed, type: 3}
+    - {fileID: 4988884264498715822, guid: c3b77266ea0668e4289e92aa866a25ed, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c3b77266ea0668e4289e92aa866a25ed, type: 3}
 --- !u!1 &1299291444
 GameObject:
