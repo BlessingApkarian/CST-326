@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour
   public int cashPoints = 100;
   private HealthBar healthBar;
 
+  public GameObject deathEffect;
+
   public UnityEvent DeathEvent;
 
   // Start is called before the first frame update
@@ -71,8 +73,10 @@ public class Enemy : MonoBehaviour
     {
       purse.AddCash(cashPoints); //add cash to purse
       DeathEvent.Invoke();    //notify towers that I am killed
+      GameObject effect = Instantiate(deathEffect, transform.position, transform.rotation); // start partical explosion
+      Destroy(effect, 2f); // particle effect stops after 2 sec
       Destroy(this.gameObject); //Get rid of object
-       
+      return;
     }
     else
     {

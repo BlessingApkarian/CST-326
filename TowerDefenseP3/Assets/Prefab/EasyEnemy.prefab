@@ -142,6 +142,8 @@ MonoBehaviour:
   amplify: 2.06
   currentHealth: 100
   cashPoints: 100
+  deathEffect: {fileID: 4642103421491522076, guid: 817a8c9a8cfd7c24f8591af17a952ca3,
+    type: 3}
   DeathEvent:
     m_PersistentCalls:
       m_Calls: []

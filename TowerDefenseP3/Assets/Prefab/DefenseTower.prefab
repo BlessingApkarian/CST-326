@@ -59,7 +59,6 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -84,7 +83,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &7616693723534643723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99,7 +97,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentEnemies: []
   currentTarget: {fileID: 0}
+  bullet: {fileID: 6627424821591851290, guid: 5315b6c045d15104690c1a79e08b32b4, type: 3}
   turret: {fileID: 6055441620081693949}
+  fireRate: 1
 --- !u!135 &-7860952679687558114
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -111,7 +111,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5
+  m_Radius: 7
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!120 &1520753473903213173
 LineRenderer:
@@ -128,7 +128,6 @@ LineRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -267,7 +266,6 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -292,7 +290,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &4943065302065074138
 BoxCollider:
   m_ObjectHideFlags: 0

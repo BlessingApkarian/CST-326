@@ -58,18 +58,13 @@ public class EnemyManager : MonoBehaviour
    while (enemyGroup.amountOfEnemies > 0)
    {
      GameObject spawnedEnemy = Instantiate(enemyGroup.enemyType);
-            Debug.Log(spawnedEnemy.name);
-            if(spawnedEnemy.name.Contains("EasyEnemy"))
-            {
-                Debug.Log("easy");
-
-                spawnedEnemy.GetComponent<Enemy>().StartEnemy(topNavPoints);
-            } else if (spawnedEnemy.name.Contains("HardEnemy Variant"))
-            {
-                Debug.Log("hard");
-
-                spawnedEnemy.GetComponent<Enemy>().StartEnemy(botNavPoints);
-            }
+    if(spawnedEnemy.name.Contains("EasyEnemy"))
+    {
+        spawnedEnemy.GetComponent<Enemy>().StartEnemy(topNavPoints);
+    } else if (spawnedEnemy.name.Contains("HardEnemy Variant"))
+    {
+        spawnedEnemy.GetComponent<Enemy>().StartEnemy(botNavPoints);
+    }
      
      spawnedEnemy.name = $"{enemyGroup.enemyType.ToString()} {i}";
      enemyGroup.amountOfEnemies--;
