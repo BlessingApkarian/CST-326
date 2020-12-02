@@ -1,0 +1,22 @@
+print "Starting maya loading and fbx conversion \n";
+	
+if (`file -q -exists "C:/Users/numyk/Dropbox/Blessing_CSUMB/FLL20/326-Game_Development/Final_Game_Project/Assets/Prefab/map.mb"`)
+{		
+	file -o "C:/Users/numyk/Dropbox/Blessing_CSUMB/FLL20/326-Game_Development/Final_Game_Project/Assets/Prefab/map.mb";
+	FBXExportEmbeddedTextures -v false;
+	// FBXExportHardEdges -v true;
+	FBXExportApplyConstantKeyReducer -v false;
+	FBXExportShowUI -v false;
+
+	print "Before fbx export\n";
+	FBXExport -f "C:/Users/numyk/Dropbox/Blessing_CSUMB/FLL20/326-Game_Development/Final_Game_Project/Temp/ExportedFBXFile.fbx";
+	print "after fbx export\n";
+}
+else
+	print "Could not open Maya file.";
+
+sysFile -delete "C:/Users/numyk/Dropbox/Blessing_CSUMB/FLL20/326-Game_Development/Final_Game_Project/Temp/CommandPipe";
+
+$donepipeKill = `fopen "C:/Users/numyk/Dropbox/Blessing_CSUMB/FLL20/326-Game_Development/Final_Game_Project/Temp/SyncPipeKill" "w"`;
+fwrite $donepipeKill "Done";
+fclose $donepipeKill;
