@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class ClickNPC : MonoBehaviour
 {
+    private Inventory inventory;
+    public GameObject mushroom1Button;
 
+    private void Start()
+    {
+        inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) // left mouse button
@@ -56,7 +62,7 @@ public class ClickNPC : MonoBehaviour
 
                     if (hit.transform.CompareTag("collectable"))
                     {
-                        GatherItems();
+                        GatherItems(hit.transform.gameObject);
                     }
                 }
             }
@@ -73,9 +79,20 @@ public class ClickNPC : MonoBehaviour
         Debug.Log("Damage Done: ");
     }
 
-    void GatherItems()
+    void GatherItems(GameObject item)
     {
         Debug.Log("Gathered: ");
+        for(int i = 0; i < inventory.slots.Length; i++)
+        {
+            if(inventory.isFull[i] == false)
+            {
+                // add item to inventory    
+                inventory.isFull[i] = true;
+                Instantiate(mushroom1Button, inventory.slots[i].transform, false); // instantiate a clickable icon in th einventory slot we just put that item in
+                Destroy(item); // after we finish gathering, it disapears
+                break;
+            }
+        }
     }
 
 }
