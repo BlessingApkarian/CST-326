@@ -1,8 +1,8 @@
 print "Starting maya loading and fbx conversion \n";
 	
-if (`file -q -exists "C:/Users/numyk/Dropbox/Blessing_CSUMB/FLL20/326-Game_Development/Final_Game_Project/Assets/Prefab/map.mb"`)
+if (`file -q -exists "C:/Users/numyk/Dropbox/Blessing_CSUMB/FLL20/326-Game_Development/Final_Game_Project/Assets/Prefab/Izabelle_2.mb"`)
 {		
-	file -o "C:/Users/numyk/Dropbox/Blessing_CSUMB/FLL20/326-Game_Development/Final_Game_Project/Assets/Prefab/map.mb";
+	file -o "C:/Users/numyk/Dropbox/Blessing_CSUMB/FLL20/326-Game_Development/Final_Game_Project/Assets/Prefab/Izabelle_2.mb";
 	FBXExportEmbeddedTextures -v false;
 	// FBXExportHardEdges -v true;
 	FBXExportApplyConstantKeyReducer -v false;

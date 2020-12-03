@@ -33,11 +33,10 @@ public class PlayerMovement : MonoBehaviour
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVel, smoothTurnTime); // smooth player turning
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-            //controller.Move(direction * speed * Time.deltaTime);
-
-            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward; // rotation & move direction 
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
 
+            // jumping
             if (controller.isGrounded)
             {
                 verticalSpeed = 0;
@@ -46,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
                 {
                     verticalSpeed = jumpSpeed;
                 }
-
             }
             else
             {
@@ -54,7 +52,6 @@ public class PlayerMovement : MonoBehaviour
             }
 
             direction.y = verticalSpeed;
-
             controller.Move(direction * Time.deltaTime);
         }
     }
