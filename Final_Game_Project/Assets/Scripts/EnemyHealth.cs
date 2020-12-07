@@ -5,11 +5,14 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField]
-    private int maxHealth = 100;
+    private int maxHealth = 10;
     public int currHealth;
+
+    public HealthBar healthBar;
 
     private void Start()
     {
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     private void OnEnable()
@@ -21,7 +24,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (ClickNPC.hitEnemy)
         {
-            ModifyHealth(10);
+            ModifyHealth(1);
             if(currHealth <= 0)
             {
                 Destroy(gameObject);
@@ -33,6 +36,7 @@ public class EnemyHealth : MonoBehaviour
     void ModifyHealth(int damage)
     {
         currHealth -= damage;
+        healthBar.SetHealth(currHealth);
     }
 
 }
