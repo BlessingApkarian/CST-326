@@ -7,6 +7,8 @@ public class ClickNPC : MonoBehaviour
     private Inventory inventory;
     public GameObject mushroom1Button;
 
+    public static bool hitEnemy = false;
+
     private void Start()
     {
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
@@ -28,7 +30,7 @@ public class ClickNPC : MonoBehaviour
                         Debug.Log("right click to speak to NPC");
                     }
 
-                    if (hit.transform.CompareTag("hitable"))
+                    if (hit.transform.CompareTag("enemy"))
                     {
                         Debug.Log("right click to attack");
                     }
@@ -57,6 +59,7 @@ public class ClickNPC : MonoBehaviour
 
                     if (hit.transform.CompareTag("enemy"))
                     {
+                        hitEnemy = true;
                         DoDamage();
                     }
 
