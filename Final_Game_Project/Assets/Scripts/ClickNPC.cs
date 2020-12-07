@@ -55,7 +55,7 @@ public class ClickNPC : MonoBehaviour
                         OpenDialog();
                     }
 
-                    if (hit.transform.CompareTag("hitable"))
+                    if (hit.transform.CompareTag("enemy"))
                     {
                         DoDamage();
                     }
